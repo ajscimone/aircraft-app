@@ -10,8 +10,6 @@ namespace AircraftApi.Models.Domain
         public required string TailNumber { get; set; }
         public int AircraftModelId { get; set; }
 
-
         public required AircraftModel AircraftModel { get; set; }
-
     }
 }

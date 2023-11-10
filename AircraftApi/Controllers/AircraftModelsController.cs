@@ -90,6 +90,12 @@ namespace AircraftApi.Controllers
           {
               return Problem("Entity set 'AircraftDbContext.AircraftModels'  is null.");
           }
+          // return conflict if the aircraft model already exists by name
+          if (_context.AircraftModels.Any(am => am.Name == aircraftModel.Name))
+            {
+                return Conflict();
+            }
+
             _context.AircraftModels.Add(aircraftModel);
             await _context.SaveChangesAsync();
 

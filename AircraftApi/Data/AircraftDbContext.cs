@@ -24,6 +24,17 @@ namespace AircraftApi.Data
             modelBuilder.Entity<AircraftModel>()
                 .HasIndex(e => e.Name)
                 .IsUnique();
+
+            //Seed Data Example
+            var aircraftManufacturers = new List<AircraftManufacturer>()
+            {   new AircraftManufacturer()
+                {
+                Id = 1,
+                Name = "Boeing"
+                }
+            };
+            modelBuilder.Entity<AircraftManufacturer>().HasData(aircraftManufacturers);
+
         }
     }
 }
